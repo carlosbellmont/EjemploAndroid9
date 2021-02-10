@@ -2,15 +2,19 @@ package com.cbellmont.ejemploandroid9
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import kotlinx.android.synthetic.main.activity_main.*
+import com.cbellmont.ejemploandroid9.databinding.ActivityMainBinding
 import kotlin.random.Random
 
 // Icons made by Freepik from https://www.flaticon.com/
 class MainActivity : AppCompatActivity() {
 
+    lateinit var binding : ActivityMainBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         val football = Sport("Futbol", R.mipmap.football)
         val basket = Sport("Basket", R.mipmap.basketball)
         val tennis = Sport("Tennis", R.mipmap.tennis)
@@ -30,7 +34,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun mostrarDeporte(sport : Sport){
-        textView.text = sport.name
-        imageView.setImageResource(sport.imageId)
+        binding.textView.text = sport.name
+        binding.imageView.setImageResource(sport.imageId)
     }
 }
