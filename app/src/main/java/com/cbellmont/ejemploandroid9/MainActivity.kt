@@ -16,13 +16,13 @@ class MainActivity : AppCompatActivity() {
         val tennis = Sport("Tennis", R.mipmap.tennis)
         val list = listOf(football, basket, tennis)
 
-        var selectedSport = list[Random.nextInt(3)]
+        var selectedSport = list[Random.nextInt(list.size)]
         mostrarDeporte(selectedSport)
 
         button.setOnClickListener {
             var sportCandidate : Sport
             do {
-                sportCandidate = list[Random.nextInt(3)]
+                sportCandidate = list[Random.nextInt(list.size)]
             } while (selectedSport.name.contentEquals(sportCandidate.name))
             selectedSport = sportCandidate
             mostrarDeporte(selectedSport)
