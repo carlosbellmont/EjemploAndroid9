@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity() {
         var selectedSport = list[Random.nextInt(list.size)]
         mostrarDeporte(selectedSport)
 
-        button.setOnClickListener {
+        binding.button.setOnClickListener {
             var sportCandidate : Sport
             do {
                 sportCandidate = list[Random.nextInt(list.size)]
